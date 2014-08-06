@@ -1,0 +1,7 @@
+language: ruby
+rvm:
+  - 2.1.0
+before_script:
+  - mysql -e 'create database myapp_test;'
+  - cp config/database.travis.yml config/database.yml
+

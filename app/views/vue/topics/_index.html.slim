@@ -1,0 +1,10 @@
+#vue-topics
+  div v-component="topic" v-repeat="topic : topics" v-ref="topics"
+  p v-show="!isLastPage"
+    - if search_page?
+      = link_to t('shared.load_more'), '#', class: 'btn btn-block btn-default', remote: true, data: { disable_with: spinner },
+        'v-attr' => "href: '#{url_for(params.merge(format: :json))}&page=' + (page + 1)"
+    - else
+      = link_to t('shared.load_more'), '#', class: 'btn btn-block btn-default', remote: true, data: { disable_with: spinner },
+        'v-attr' => "href: '#{u_t_index_path(user, page: '')}' + (page + 1)"
+

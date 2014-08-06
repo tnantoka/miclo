@@ -1,0 +1,10 @@
+.row
+  .col-sm-4
+    = render 'vue/users/profile', user: @user, hashtags: @hashtags
+  .col-sm-8
+    = render 'vue/topics/index', user: @user
+
+- content_for(:javascript) do
+  javascript:
+    Miclo.topics = #{render(template: 'topics/index', formats: [:json]).html_safe};
+

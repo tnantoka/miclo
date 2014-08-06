@@ -1,0 +1,15 @@
+script#vue-edit-post-template type="text/x-template"
+  = form_tag bindable_path(:post_path, '{{ post.id }}'), method: :patch, remote: true do
+    = render 'vue/posts/form', action: :edit
+
+.modal#vue-edit-post-modal.fade previewPath="#{preview_posts_path}"
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close type="button" data-dismiss="modal"
+          span aria-hidden="true" &times;
+          span.sr-only Close
+        h4.modal-title= t('shared.edit_post')
+      .modal-body
+        form v-component="edit-post" v-with="$data" v-ref="form"
+

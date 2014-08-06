@@ -1,0 +1,47 @@
+.jumbotron.text-center
+  .container
+    h1= t('.heading')
+    p= t('.subheading')
+    p= link_to '/auth/github', class: 'btn btn-default btn-lg', data: { disable_with: spinner } do
+      = t('shared.sign_in_with_account', service: 'GitHub')
+    .row.text-left
+      .col-sm-2.col-sm-offset-3
+        p= render 'shared/github'
+      .col-sm-2
+        p= render 'shared/twitter'
+      .col-sm-2
+        = render 'shared/facebook'
+
+.container.text-center
+  .row
+    .col-sm-4
+      .thumbnail
+        .icon= fa_icon 'code'
+        .caption
+          h3= t('.markdown')
+          p= t('.you_can_write')
+          p= link_to '#markdown', root_path(q: '#markdown'), class: 'btn btn-link'
+    .col-sm-4
+      .thumbnail
+        .icon= fa_icon 'child'
+        .caption
+          h3= t('.just_one')
+          p= t('.not_social')
+          p= link_to t('.use_case'), u_path('tnantoka'), class: 'btn btn-link'
+    .col-sm-4
+      .thumbnail
+        .icon= fa_icon 'code-fork'
+        .caption
+          h3= t('.open_source')
+          p= t('.mit_license')
+          p
+            a.btn.btn-link href="https://github.com/tnantoka/miclo" target="_blank"
+              = t('.project_home')
+.jumbotron.text-center
+  .container
+    .row
+      .col-sm-6.col-sm-offset-3
+        p= link_to '/auth/github', class: 'btn btn-default btn-lg btn-block', data: { disable_with: spinner } do
+          = fa_icon 'github', text: t('shared.sign_in_with', service: 'GitHub')
+= render 'shared/bitcoin'
+

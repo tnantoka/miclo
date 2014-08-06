@@ -1,0 +1,16 @@
+script#vue-topic-template type="text/x-template"
+  .panel.panel-default v-show="!!topic.posts.length"
+    .panel-heading.list-hover-container
+      ul.list-inline.pull-right.list-hover
+        li= bindable_link_to fa_icon('trash-o fw'), topic_path('{{ topic.id }}'),
+          method: :delete, remote: true, data: { disable_with: spinner, confirm: t('shared.are_you_sure') }
+        li= bindable_link_to fa_icon('link fw'), u_t_path('{{ topic.user.username }}', '{{ topic.sequential_id }}')
+      h1
+        a href="#{bindable_path(:u_t_path, '{{ topic.user.username }}', '{{ topic.sequential_id }}')}" v-html="duration"
+    ul.list-group
+      li v-component="post" v-repeat="post : topic.posts"
+    - if topic_page?
+      .panel-footer
+        = render 'shared/addthis'
+        = render 'shared/disqus'
+

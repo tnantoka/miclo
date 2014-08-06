@@ -1,0 +1,6 @@
+- if message.present?
+  .container
+    .alert.alert-success.alert-dismissible role="alert" class="alert-#{context}"
+      = render 'shared/dismiss_alert'
+      = message
+

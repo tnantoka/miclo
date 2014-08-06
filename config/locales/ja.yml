@@ -1,0 +1,101 @@
+ja:
+  shared:
+    brand: Miclo
+    sign_in_with_account: '%{service}アカウントでログイン'
+    sign_in_with: '%{service}ログイン'
+    sign_in: ログイン
+    sign_out: ログアウト
+    home: ホーム
+    account: アカウント
+    keyboard_shortcuts: キーボードショートカット
+    search: 検索
+    locales: &locales
+      en: 英語
+      ja: 日本語
+    are_you_sure: '本当によろしいですか？'
+    post: 投稿
+    update: 更新
+    new_post: 新規投稿
+    edit_post: 投稿の編集
+    load_more: もっと見る
+    topic: トピック
+    all_users: 全てのユーザー
+    source_code: ソースコード
+    link: リンク
+    topics: トピック
+    posts: 投稿
+    hashtags: ハッシュタグ
+    recent_searches: 最近の検索履歴
+    new_or_add: '新規 / 続き'
+
+  welcome:
+    index:
+      heading: タイムラインで残すメモ
+      subheading: |
+        Micloは個人用のマイクロブログサービスです。
+        短文を連投する形式をとることで「長すぎて書く気が起きない」という問題にサヨナラできます。
+      markdown: マークダウン
+      just_one: お一人様
+      open_source: オープンソース
+      not_social: ソーシャルネットワーキングサービスではありません。
+      you_can_write: 投稿の本文はMarkdownを使って書くことができます。
+      mit_license: ソースコードはMITライセンスのもとで公開されています。
+      use_case: 利用例
+      project_home: プロジェクトページ
+      just_another: Just another microblogging
+    home:
+      page_title: ホーム
+  users:
+    edit:
+      page_title: アカウント
+      username_format: 半角英数字・ハイフン・アンダースコアが使用できます。（最大64文字）
+      change: 変更
+      delete: 削除
+      no_going_back: 一度アカウントを削除すると、元に戻すことは出来ません。
+    show:
+      page_title: '%{user}'
+  topics:
+    show:
+      page_title: '%{topic} - %{user}'
+  posts:
+    show:
+      page_title: '%{post} - %{topic} - %{user}'
+  queries:
+    show:
+      page_title: '%{q} - 検索'
+
+  vue:
+    posts:
+      form:
+        new: 新規
+        add: 続き
+    users:
+      profile:
+        more: もっと見る
+
+  flash:
+    sessions:
+      signed_in: ログインしました
+      signed_out: ログアウトしました
+      failure: '認証に失敗しました（%{reason}）'
+    shared:
+      created: '%{target}は正常に作成されました'
+      updated: '%{target}は正常に更新されました'
+      destroyed: '%{target}は正常に削除されました'
+      unauthenticated: 続けるにはログインしてください。
+
+  enum:
+    locale:
+      <<: *locales
+
+  activerecord:
+    attributes:
+      user:
+        username: ユーザー名
+        locale: 言語
+      post:
+        content: 本文
+    models:
+      user: ユーザー
+      post: 投稿
+

@@ -1,0 +1,42 @@
+doctype html
+html lang="#{I18n.locale}"
+  head
+    meta charset="UTF-8"
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+    title= page_title
+    = stylesheet_link_tag 'application', media: 'all'
+    = csrf_meta_tags
+  body
+    = render 'vue/shared/navbar', search: @search, user: @user
+    = render 'shared/alert', context: 'success', message: flash[:notice]
+    = render 'shared/alert', context: 'danger', message: flash[:alert]
+    div class="#{'container' unless root_page?}"
+      = yield
+    .container
+      footer.l-footer.text-center
+        ul.list-inline.list-inline-bordered
+          li
+            small
+              ' &copy; 2014
+              a target="_blank" href="https://twitter.com/tnantoka" tnantoka
+          li
+            small
+              a target="_blank" href="https://github.com/tnantoka/miclo" Fork me on GitHub
+          - I18n.available_locales.each do |locale|
+            li
+              small
+                = link_to t("shared.locales.#{locale}", locale: locale), url_for(params.merge(locale: locale))
+
+
+    - if user_signed_in?
+      = render 'shared/keyboard_shortcuts'
+
+      = render 'vue/posts/new'
+      = render 'vue/posts/edit'
+      = render 'vue/posts/post'
+      = render 'vue/topics/topic'
+
+    = javascript_include_tag 'application'
+    = content_for(:javascript)
+    = render 'shared/embed'
+

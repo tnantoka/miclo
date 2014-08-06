@@ -1,0 +1,48 @@
+- queries ||= nil
+.panel.panel-default
+  .panel-body
+    .media
+      = link_to u_path(user), class: 'pull-left' do
+        = image_tag user.default_image, class: 'media-object img-rounded'
+      .media-body
+          h4.media-heading
+            => link_to u_path(user), class: 'link-plain' do
+              = user.username
+            span.text-muted
+              = link_to fa_icon('github'), "https://github.com/#{user.nickname('github')}", target: '_blank', class: 'link-plain'
+          ul.list-inline.text-muted
+            li
+              strong>= user.topics.count
+              small= t('shared.topics')
+            li
+              strong>= user.posts.count
+              small= t('shared.posts')
+  - if home_page?
+    .panel-footer
+      #vue-new-post previewPath="#{preview_posts_path}"
+        form v-component="new-post" v-with="$data" v-ref="form"
+
+.panel.panel-default.panel-ad.text-center
+  .panel-body
+    = render 'shared/adsense_square'
+
+.list-group
+  = link_to '#todo', search_path(q: { posts_content_cont: '#todo', user_id_eq: user.id }), class: 'list-group-item'
+  = link_to '#done', search_path(q: { posts_content_cont: '#done', user_id_eq: user.id }), class: 'list-group-item'
+  = link_to t('shared.link'), search_path(q: { posts_content_cont: 'http:// https://', user_id_eq: user.id }), class: 'list-group-item'
+  = link_to t('shared.source_code'), search_path(q: { posts_content_cont: '```', user_id_eq: user.id }), class: 'list-group-item'
+
+#vue-hashtags.list-group hashtagsPath="#{hashtags_path}"
+  .list-group-item.list-group-item-heading-container
+    h5.list-group-item-heading= t('shared.hashtags')
+  a.list-group-item v-repeat="hashtag : hashtags" href="#{bindable_path(:search_path, q: { posts_content_cont: '{{ hashtag.name | encode }}', user_id_eq: user.id })}"
+    | {{ hashtag.name }}
+  = link_to t('.more'), '#', class: 'list-group-item', 'v-show' => 'allHashtags.length', 'v-on' => 'click: showMore'
+
+- if home_page?
+  #vue-queries.list-group queriesPath="#{queries_path}"
+    .list-group-item.list-group-item-heading-container
+      h5.list-group-item-heading= t('shared.recent_searches')
+    a.list-group-item v-repeat="query : queries" href="#{bindable_path(:search_path, q: { posts_content_cont: '{{ query.text | encode }}', user_id_eq: user.id })}"
+      | {{ query.text }}
+    = link_to t('.more'), '#', class: 'list-group-item', 'v-show' => 'allQueries.length', 'v-on' => 'click: showMore'

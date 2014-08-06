@@ -1,0 +1,11 @@
+.row
+  .col-sm-4
+    = render 'vue/users/profile', user: current_user, hashtags: @hashtags, queries: @queries
+  .col-sm-8
+    = render 'vue/topics/index', user: current_user
+
+- content_for(:javascript) do
+  javascript:
+    Miclo.newPost = #{render(template: 'posts/_post', formats: [:json], locals: { post: @post }).html_safe};
+    Miclo.topics = #{render(template: 'topics/index', formats: [:json]).html_safe};
+

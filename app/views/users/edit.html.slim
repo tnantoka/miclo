@@ -1,0 +1,22 @@
+.page-header
+  h1= t('shared.account')
+.panel.panel-default
+  .panel-heading
+    = t('.change')
+  .panel-body
+    = form_for @user do |f|
+      = render 'shared/errors', model: @user
+      .form-group
+        = f.label :username
+        = f.text_field :username, class: 'form-control', required: true
+        p.help-block= t('.username_format')
+      .form-group
+        = f.label :locale
+        = f.select :locale, enum_for_select(User, :locale), { }, class: 'form-control'
+      = f.button class: 'btn btn-default', data: { disable_with: spinner }
+.panel.panel-danger
+  .panel-heading
+    = t('.delete')
+  .panel-body
+    p= t('.no_going_back')
+    p= link_to t('.delete'), :user, method: :delete, class: 'btn btn-danger', data: { confirm: t('shared.are_you_sure'), disable_with: spinner }

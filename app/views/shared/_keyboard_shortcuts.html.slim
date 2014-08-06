@@ -1,0 +1,42 @@
+.modal#keyboard_shortcuts.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close type="button" data-dismiss="modal"
+          span aria-hidden="true" &times;
+          span.sr-only Close
+        h4.modal-title= t('shared.keyboard_shortcuts')
+      .modal-body
+          table.table.table-bordered
+            tr
+              th= t('shared.new_post')
+              td
+                kbd n
+            tr
+              th rowspan="2"= t('shared.post')
+              td
+                => fa_icon 'windows fw'
+                kbd> Control
+                ' +
+                kbd Enter
+            tr
+              td
+                => fa_icon 'apple fw'
+                kbd> Command
+                ' +
+                kbd Enter
+            tr
+              th rowspan="2"= t('shared.new_or_add')
+              td
+                => fa_icon 'windows fw'
+                kbd> Control
+                ' +
+                kbd &larr; / &rarr;
+            tr
+              td
+                => fa_icon 'apple fw'
+                kbd> Command
+                ' +
+                kbd &larr; / &rarr;
+
+

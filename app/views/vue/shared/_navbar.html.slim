@@ -1,0 +1,55 @@
+- user ||= nil
+nav#vue-navbar-top.navbar.navbar-default.navbar-fixed-top role="navigation" v-on="click: scrollToTop" userId="#{user.try(:id)}" username="#{user.try(:username).presence || t('shared.all_users')}"
+  .container
+    .navbar-header
+      button.navbar-toggle data-target="#bs-navbar-collapse" data-toggle="collapse" type="button"
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      = link_to t('shared.brand'), root_path(locale: nil), class: 'navbar-brand'
+    #bs-navbar-collapse.collapse.navbar-collapse
+      = search_form_for search, url: search_path, class: 'navbar-form navbar-left', role: 'search' do |f|
+        .form-group>
+          .input-group
+            span.input-group-btn.dropdown
+              a.dropdown-toggle data-toggle="dropdown" class="btn btn-default" href="#"
+                ' {{ username }}
+                span.caret
+              ul.dropdown-menu role="menu"
+                li
+                  a href="#" v-on="click: setUser('', '#{t('shared.all_users')}')"
+                    = t('shared.all_users')
+                - if user.present?
+                  li
+                    a href="#" v-on="click: setUser(#{user.id}, '#{user.username}')"
+                      = user.username
+                - if user_signed_in? && current_user != user
+                  li
+                    a href="#" v-on="click: setUser(#{current_user.id}, '#{current_user.username}')"
+                      = current_user.username
+            = f.text_field :posts_content_cont, value: params[:q].try(:[], :posts_content_cont), class: 'form-control', placeholder: t('shared.search')
+            span.input-group-btn
+              = f.button fa_icon('search'), class: 'btn btn-default', data: { disable_with: spinner }
+          = f.hidden_field :user_id_eq, value: '{{ userId }}'
+      - if user_signed_in?
+        form.navbar-form.navbar-right
+          btn.btn.btn-default type="button" v-on="click: newPost" title="#{t('shared.new_post')}"
+            = fa_icon 'pencil'
+      ul.nav.navbar-nav.navbar-right
+        - if user_signed_in?
+          li.dropdown
+            a.dropdown-toggle data-toggle="dropdown" href="#"
+              => current_user.username
+              span.caret
+            ul.dropdown-menu role="menu"
+              li= link_to t('shared.home'), :home
+              li= link_to t('shared.account'), :edit_user
+              li.divider
+              li= link_to t('shared.keyboard_shortcuts'), '#keyboard_shortcuts', data: { toggle: 'modal' }
+              li.divider
+              li= link_to t('shared.sign_out'), :sign_out, method: :delete
+        - else
+          li= link_to '/auth/github', data: { disable_with: spinner } do
+            = fa_icon 'github', text: t('shared.sign_in')
+

@@ -1,0 +1,27 @@
+.row
+  .col-sm-10.col-sm-offset-1
+    .ad-container.text-center
+      = render 'shared/adsense_responsive'
+.row
+  .col-sm-1.col-xs-6
+    - if @post.newer.present?
+      p= link_to fa_icon('chevron-left'), u_t_p_path(@user, @topic, @post.newer)
+  .col-sm-1.col-sm-push-10.col-xs-6
+    - if @post.older.present?
+      p.text-right= link_to fa_icon('chevron-right'), u_t_p_path(@user, @topic, @post.older)
+  .col-sm-10.col-sm-pull-1.col-xs-12
+    .panel.panel-default v-show="!!topic.posts.length"
+      .panel-heading
+        h1
+          = link_to u_t_path(@user, @topic) do
+            = fa_icon 'level-down rotate-180'
+      ul#vue-post.list-group.list-unstyled
+        li v-component="post" v-with="$data"
+      - if post_page?
+        .panel-footer
+          = render 'shared/addthis'
+
+- content_for(:javascript) do
+  javascript:
+    Miclo.post = #{render(template: 'posts/_post', formats: [:json], locals: { post: @post }).html_safe};
+

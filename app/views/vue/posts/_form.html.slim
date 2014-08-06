@@ -1,0 +1,30 @@
+.form-group
+  = label :post, :content, class: 'sr-only'
+  = text_area :post, :content, class: 'form-control', rows: 4,
+    'v-model' => 'post.content', 'v-on' => 'keyup: preview',
+    required: Rails.env.production?
+- case action
+- when :new
+  .row
+    .col-xs-6
+      .btn-group data-toggle="buttons"
+        label.btn.btn-default v-class="active: !post.topic.id"
+          = radio_button :post, :topic_id, nil, 'v-attr' => 'checked: !post.topic.id'
+          = t('.new')
+        label.btn.btn-default v-show="post.topic.id" v-class="active: !!post.topic.id"
+          = radio_button :post, :topic_id, nil, 'v-attr' => 'value: post.topic.id, checked: !!post.topic.id'
+          = t('.add')
+    .col-xs-6
+      p.text-right
+        = button_tag t('shared.post'), class: 'btn btn-default', data: { disable_with: spinner }
+- when :edit
+  p.text-right
+    = button_tag t('shared.update'), class: 'btn btn-default', data: { disable_with: spinner }
+.panel.panel-default v-show="post.content_html"
+  .panel-body v-html="post.content_html"
+div v-show="messages.length"
+  .alert role="alert" v-class="'alert-' + context"
+    ul.list-unstyled
+      li v-repeat="messages"
+        | {{ $value }}
+

@@ -1,0 +1,6 @@
+- if model.errors.any?
+  .alert.alert-success.alert-dismissible.alert-danger role="alert"
+    = render 'shared/dismiss_alert'
+    ul.list-unstyled
+      - model.errors.full_messages.each do |message|
+        li= message

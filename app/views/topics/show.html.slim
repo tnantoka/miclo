@@ -1,0 +1,19 @@
+.row
+  .col-sm-10.col-sm-offset-1
+    .ad-container.text-center
+      = render 'shared/adsense_responsive'
+.row
+  .col-sm-1.col-xs-6
+    - if @topic.newer.present?
+      p= link_to fa_icon('chevron-left'), u_t_path(@user, @topic.newer)
+  .col-sm-1.col-sm-push-10.col-xs-6
+    - if @topic.older.present?
+      p.text-right= link_to fa_icon('chevron-right'), u_t_path(@user, @topic.older)
+  .col-sm-10.col-sm-pull-1.col-xs-12
+    #vue-topic
+      div v-component="topic" v-with="$data" v-ref="topic"
+
+- content_for(:javascript) do
+  javascript:
+    Miclo.topic = #{render(template: 'topics/_topic', formats: [:json], locals: { topic: @topic }).html_safe};
+

@@ -1,0 +1,101 @@
+en:
+  shared:
+    brand: Miclo
+    sign_in_with_account: 'Sign in with %{service} account'
+    sign_in_with: 'Sign in with %{service}'
+    sign_in: Sign in
+    sign_out: Sign out
+    home: Home
+    account: Account
+    keyboard_shortcuts: Keyboard shortcuts
+    search: Search
+    locales: &locales
+      en: English
+      ja: Japanese
+    are_you_sure: 'Are you sure?'
+    post: Post
+    update: Update
+    new_post: New post
+    edit_post: Edit post
+    load_more: Load more
+    topic: Topic
+    all_users: All users
+    source_code: Source code
+    link: Link
+    topics: Topics
+    posts: Posts
+    hashtags: Hashtags
+    recent_searches: Recent searches
+    new_or_add: 'New / Add'
+
+  welcome:
+    index:
+      heading: Take Notes as a Timeline
+      subheading: |
+        Miclo is a personal microblogging platform.
+        Say goodbye to "Too long; didn't write" by posting short sentences at ease.
+      markdown: Markdown
+      just_one: Just one
+      open_source: Open source
+      not_social: This is not social networking service.
+      you_can_write: You can write all posts in Markdown.
+      mit_license: The source code is lisenced under the MIT License.
+      use_case: Use case
+      project_home: Project home
+      just_another: Just another microblogging
+    home:
+      page_title: Home
+  users:
+    edit:
+      page_title: Account
+      username_format: Username may only contain alphanumeric characters, dashes or underscores. (maximum is 64 characters)
+      change: Change
+      delete: Delete
+      no_going_back: Once you delete your account, there is no going back.
+    show:
+      page_title: '%{user}'
+  topics:
+    show:
+      page_title: '%{topic} - %{user}'
+  posts:
+    show:
+      page_title: '%{post} - %{topic} - %{user}'
+  queries:
+    show:
+      page_title: '%{q} - Search'
+
+  vue:
+    posts:
+      form:
+        new: New
+        add: Add
+    users:
+      profile:
+        more: More
+
+  flash:
+    sessions:
+      signed_in: Signed in successfully.
+      signed_out: Signed out successfully.
+      failure: 'Authentication failed: %{reason}'
+    shared:
+      created: '%{target} was successfully created.'
+      updated: '%{target} was successfully updated.'
+      destroyed: '%{target} was successfully destroyed.'
+      unauthenticated: You need to sign in before continuing.
+
+  enum:
+    locale:
+      <<: *locales
+
+  activerecord:
+    attributes:
+      user:
+        username: Username
+        locale: Locale
+      post:
+        content: Content
+    models:
+      user: User
+      post: Post
+

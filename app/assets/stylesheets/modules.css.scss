@@ -1,0 +1,130 @@
+.jumbotron {
+  h1 {
+    font-size: 36px;
+  }
+}
+
+.navbar {
+  cursor: pointer;
+}
+
+.page-header {
+  margin-top: 0;
+}
+
+.panel-heading {
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    font-size: inherit;
+    font-weight: bold;
+    line-height: inherit;
+    a {
+      color: inherit;
+    }
+  }
+}
+
+.panel-footer {
+  .list-inline {
+    margin-bottom: 0;
+  }
+}
+
+.panel-ad {
+  .panel-body {
+    padding: 15px 0;
+  }
+}
+
+.ad-container {
+  margin-bottom: 20px;
+}
+
+.thumbnail {
+  border: none;
+  .icon {
+    font-size: 90px;
+    color: $text-muted;
+    //background: $thumbnails-icon-bg;
+    //line-height: 200px;
+    //height: 200px;
+  }
+  h3 {
+    color: $text-muted;
+  }
+  .caption {
+    p {
+      min-height: 3em;
+    }
+  }
+}
+
+.list-hover-container {
+  .list-hover {
+    a {
+      color: lighten($text-muted, 40%);
+    }
+  }
+  &:hover {
+    .list-hover {
+      a {
+        color: $text-muted;
+        &:hover {
+          color: darken($text-muted, 40%);
+        }
+      }
+    }
+  }
+}
+
+.media-body-secondary-only {
+  .media-heading {
+    &.media-heading {
+      margin-bottom: 10px;
+      line-height: 0.75;
+      a {
+        color: inherit;
+      }
+    }
+  }
+  .list-inline {
+    //margin-left: 0;
+  }
+}
+
+.list-group-item-heading-container {
+  border: none;
+  .list-group-item-heading {
+    margin-bottom: 0;
+    color: $text-muted;
+  }
+}
+
+.link-plain,
+.link-plain:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+@media (min-width: $screen-xs-min) {
+  .list-inline-bordered {
+    li {
+      border-left: 1px solid $list-border-color;
+      padding: 0 10px;
+    }
+    li:first-child {
+      border-left: none;
+    }
+  }
+}
+
+.twitter-typeahead {
+  vertical-align: middle;
+}
+
+.github-buttons,
+.fb-like,
+.twitter-share-button {
+  vertical-align: top;
+}
+
