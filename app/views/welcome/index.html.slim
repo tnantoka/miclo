@@ -4,11 +4,12 @@
     p= t('.subheading')
     p= link_to '/auth/github', class: 'btn btn-default btn-lg', data: { disable_with: spinner } do
       = t('shared.sign_in_with_account', service: 'GitHub')
+    hr.space-only
     .row.text-left
       .col-sm-2.col-sm-offset-3
-        p= render 'shared/github'
-      .col-sm-2
         p= render 'shared/twitter'
+      .col-sm-2
+        p= render 'shared/github'
       .col-sm-2
         = render 'shared/facebook'
 
@@ -20,7 +21,7 @@
         .caption
           h3= t('.markdown')
           p= t('.you_can_write')
-          p= link_to '#markdown', root_path(q: '#markdown'), class: 'btn btn-link'
+          p= link_to '#markdown', search_path(q: { posts_content_cont: '#markdown' }), class: 'btn btn-link'
     .col-sm-4
       .thumbnail
         .icon= fa_icon 'child'

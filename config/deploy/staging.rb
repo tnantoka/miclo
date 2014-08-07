@@ -53,4 +53,7 @@ set :default_env, {
 
   miclo_database_password: JSON.parse(File.read('miclo_cookbook/nodes/vagrant.local.json'))['mysql']['server_root_password'],
   secret_key_base: 'b11acaa0b8b06ee0dda3cd1bac2ed3e0e44002bcf86721323b182369a90eb368222f559a37987267815083f6bd52998b0b74378a7e107abf7a2414c114c50222',
+
+  github_api_key: ENV["GITHUB_API_KEY"],
+  github_api_secret: ENV["GITHUB_API_SECRET"],
 }

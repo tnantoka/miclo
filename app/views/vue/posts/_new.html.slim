@@ -2,7 +2,7 @@ script#vue-new-post-template type="text/x-template"
   = form_tag posts_path, remote: true, 'newPostPath' => new_post_path do
     = render 'vue/posts/form', action: :new
 
-.modal#vue-new-post-modal.fade previewPath="#{preview_posts_path}"
+.modal#vue-new-post-modal previewPath="#{preview_posts_path}"
   .modal-dialog
     .modal-content
       .modal-header

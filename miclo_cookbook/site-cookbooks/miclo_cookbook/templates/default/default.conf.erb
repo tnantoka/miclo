@@ -33,3 +33,9 @@ server {
   }
 }
 
+server {
+  listen 80;
+  server_name www.<%= node.miclo_cookbook.server_name %>;
+  return 301 http://<%= node.miclo_cookbook.server_name %>$request_uri;
+}
+

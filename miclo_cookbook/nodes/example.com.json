@@ -1,0 +1,45 @@
+{
+  "run_list": [
+    "recipe[build-essential]",
+    "recipe[git]",
+    "recipe[memcached]",
+    "recipe[nodejs]",
+    "recipe[database]",
+    "recipe[xml]",
+    "recipe[ruby_build]",
+    "recipe[rbenv::system]",
+    "recipe[nginx]",
+    "recipe[imagemagick]",
+    "recipe[mysql::server]",
+    "recipe[mysql::client]",
+    "recipe[phantomjs]",
+
+    "recipe[miclo_cookbook::ops_user]",
+    "recipe[miclo_cookbook::keys]",
+    "recipe[miclo_cookbook::nginx_setting]",
+    "recipe[miclo_cookbook::iptables]",
+    "recipe[miclo_cookbook::database]"
+  ],
+  "automatic": {
+    "ipaddress": "example.com"
+  },
+  "mysql": {
+    "server_root_password": "ilikerandompasswords"
+  },
+  "miclo_cookbook": {
+    "server_name": "example.com",
+    "db_name": "miclo_production",
+    "secret_key_base": "",
+    "github_api_key": "",
+    "github_api_secret": ""
+  },
+  "rbenv": {
+    "global": "2.1.2",
+    "rubies": ["2.1.2"],
+    "gems": {
+      "2.1.2": [
+        { "name": "bundler" }
+      ]
+    }
+  }
+}
