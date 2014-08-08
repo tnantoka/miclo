@@ -28,13 +28,14 @@ html lang="#{I18n.locale}"
                 = link_to t("shared.locales.#{locale}", locale: locale), url_for(params.merge(locale: locale))
 
 
-    - if user_signed_in?
-      = render 'shared/keyboard_shortcuts'
+    = render 'vue/posts/post'
+    = render 'vue/topics/topic'
 
+    - if user_signed_in?
       = render 'vue/posts/new'
       = render 'vue/posts/edit'
-      = render 'vue/posts/post'
-      = render 'vue/topics/topic'
+
+      = render 'shared/keyboard_shortcuts'
 
     = javascript_include_tag 'application'
     = content_for(:javascript)

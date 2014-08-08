@@ -35,7 +35,7 @@
 #vue-hashtags.list-group hashtagsPath="#{hashtags_path}"
   .list-group-item.list-group-item-heading-container
     h5.list-group-item-heading= t('shared.hashtags')
-  a.list-group-item v-repeat="hashtag : hashtags" href="#{bindable_path(:search_path, q: { posts_content_cont: '{{ hashtag.name | encode }}', user_id_eq: user.id })}"
+  a.list-group-item v-repeat="hashtag : hashtags" href="#{bindable_path(:search, q: { posts_content_cont: '{{ hashtag.name | encode }}', user_id_eq: user.id })}"
     | {{ hashtag.name }}
   = link_to t('.more'), '#', class: 'list-group-item', 'v-show' => 'allHashtags.length', 'v-on' => 'click: showMore'
 
@@ -43,6 +43,6 @@
   #vue-queries.list-group queriesPath="#{queries_path}"
     .list-group-item.list-group-item-heading-container
       h5.list-group-item-heading= t('shared.recent_searches')
-    a.list-group-item v-repeat="query : queries" href="#{bindable_path(:search_path, q: { posts_content_cont: '{{ query.text | encode }}', user_id_eq: user.id })}"
+    a.list-group-item v-repeat="query : queries" href="#{bindable_path(:search, q: { posts_content_cont: '{{ query.text | encode }}', user_id_eq: user.id })}"
       | {{ query.text }}
     = link_to t('.more'), '#', class: 'list-group-item', 'v-show' => 'allQueries.length', 'v-on' => 'click: showMore'

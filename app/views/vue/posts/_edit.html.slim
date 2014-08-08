@@ -1,5 +1,5 @@
 script#vue-edit-post-template type="text/x-template"
-  = form_tag bindable_path(:post_path, '{{ post.id }}'), method: :patch, remote: true do
+  = form_tag bindable_path(:post, '{{ post.id }}'), method: :patch, remote: true do
     = render 'vue/posts/form', action: :edit
 
 .modal#vue-edit-post-modal previewPath="#{preview_posts_path}"

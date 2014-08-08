@@ -8,7 +8,7 @@ module ApplicationHelper
   end
 
   def search_page?
-    current_page?(controller: :queries, action: :show)
+    controller_name == 'queries' &&  action_name == 'show'
   end
 
   def topic_page?
@@ -49,10 +49,11 @@ module ApplicationHelper
     encoded
       .gsub(/%7B%7B#{space}/i, '{{ ').gsub(/#{space}%7D%7D/i, ' }}') # delimiters
       .gsub(/#{space}%7C#{space}/i, ' | ') # filter
+      .gsub(/\+%2B\+/i, ' + ') # expression
   end
 
   def bindable_path(path, *args)
-    decode_bindings(send(path, *args))
+    decode_bindings(send("#{path}_path", *args))
   end
 
   def bindable_link_to(*args, &block)
