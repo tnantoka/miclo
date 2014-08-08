@@ -2,7 +2,7 @@
 
 [Miclo.org](http://miclo.org/) is a personal microblogging platform.
 
-![](dashboard)
+![](home.png)
 
 ## Requirement
 
