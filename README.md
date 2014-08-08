@@ -8,7 +8,7 @@
 
 * Ruby 2.1
 * Ruby on Rails 4.1
-* GitHub API (Authorization callback Path: /auth/github/callback)
+* GitHub API (Authorization callback path: `/auth/github/callback`)
 
 ## Installation
 

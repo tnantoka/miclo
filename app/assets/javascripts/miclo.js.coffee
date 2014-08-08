@@ -22,9 +22,8 @@ window.Miclo =
       source: engine.ttAdapter()
     }
   textcomplete: ($el) ->
-    console.log($el)
     $el.textcomplete [
-      match: /(^|[\s　#])#([^\s　#]*)$/
+      match: /(^|[\s　])#([^\s　]*)$/
       search: (term, callback) ->
         regexp = new RegExp('^#' + term)
         callback $.grep Miclo.hashtags, (hashtag) ->
@@ -48,7 +47,9 @@ initMousetrap = ->
       Miclo.navbarVue.newPost()
 
   Mousetrap.bindGlobal 'mod+enter', ->
-    if Miclo.newPostModalVue
+    if Miclo.editPostModalVue
+      $(Miclo.editPostModalVue.$el).find('button[type=submit]').click()
+    else if Miclo.newPostModalVue
       $(Miclo.newPostModalVue.$el).find('button[type=submit]').click()
     else if Miclo.newPostVue
       $(Miclo.newPostVue.$el).find('button[type=submit]').click()

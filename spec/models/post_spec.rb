@@ -55,11 +55,23 @@ RSpec.describe Post, type: :model do
     let(:content) {
       <<-EOD.strip_heredoc
         content
+        # header #hashtag
+        #hashtag
+        http://example.com/#acnhor
+        [Example](http://example.com/#acnhor)
       EOD
      }
     let(:content_html) {
+      hashtag = %|<a href="/search?q%5Bposts_content_cont%5D=%23hashtag&amp;q%5Buser_id_eq%5D=#{user.id}">#hashtag</a>|
       <<-EOD.strip_heredoc
         <p>content</p>
+
+        <h1>header #{hashtag}
+        </h1>
+
+        <p>#{hashtag}<br>
+        <a href="http://example.com/#acnhor" target="_blank">http://example.com/#acnhor</a><br>
+        <a href="http://example.com/#acnhor" target="_blank">Example</a></p>
       EOD
     }
     subject { post.render }

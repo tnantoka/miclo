@@ -18,11 +18,13 @@ class Post < ActiveRecord::Base
   scope :with_user, -> { includes(:user) }
   scope :sequential, -> { order(sequential_id: :desc) }
 
-  HashtagPattern = /#[^\p{blank}#]+/
+  HashtagPattern = /(^|\p{blank})(#[^\p{blank}]+)/
 
   class << self
-    def render(content, user)
-      renderer = HTMLWithHashtag.new(
+    include Rails.application.routes.url_helpers
+
+    def render(content)
+      renderer = Redcarpet::Render::HTML.new(
         filter_html: true,
         no_images: false,
         no_links: false,
@@ -37,7 +39,6 @@ class Post < ActiveRecord::Base
           target: '_blank'
         }
       )
-      renderer.user = user
       markdown = Redcarpet::Markdown.new(renderer,
         no_intra_emphasis: true,
         tables: true,
@@ -46,7 +47,7 @@ class Post < ActiveRecord::Base
         disable_indented_code_blocks: true,
         strikethrough: true,
         lax_spacing: true,
-        space_after_headers: true,
+        space_after_headers: true, # For hashtag
         superscript: true,
         underline: true,
         highlight: true,
@@ -55,10 +56,40 @@ class Post < ActiveRecord::Base
       )
       markdown.render(content.to_s)
     end
+
+    def replace_hashtags(content, user)
+      parse_hashtags(content) do |node, prefix, hashtag|
+        path = search_path(q: {
+          posts_content_cont: hashtag,
+          user_id_eq: user.try(:id)
+        })
+        "#{prefix}#{ActionController::Base.helpers.link_to(hashtag, path)}"
+      end
+    end
+
+    def extract_hashtags(content)
+      hashtags = []
+      parse_hashtags(content) do |node, prefix, hashtag|
+        hashtags << hashtag
+      end
+      hashtags
+    end
+
+    def parse_hashtags(content)
+      doc = Nokogiri::HTML.fragment(content)
+      doc.xpath('*[not(self::a)]/text()').each do |node|
+        replaced = node.content.gsub(Post::HashtagPattern) do |match|
+          yield node, $1, $2
+        end
+        node.replace(replaced)
+      end
+      doc.to_s
+    end
   end
 
   def render
-    Post.render(content, user)
+    rendered = Post.render(content)
+    Post.replace_hashtags(rendered, user)
   end
 
   def older
@@ -87,9 +118,10 @@ class Post < ActiveRecord::Base
     end
 
     def update_tag_list
-      tags = content.scan(HashtagPattern)
+      rendered = Post.render(content)
+      tags = Post.extract_hashtags(rendered)
       self.tag_list = tags
-      user.tag(self, with: tags, on: :tags, skip_save: true)
+      user.tag(self, with: tags, on: :tags, skip_save: true) # Infinite loop without skip_save
     end
 
 end

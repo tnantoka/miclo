@@ -95,4 +95,5 @@ gem 'ransack', '~> 1.2.3'
 gem 'sequenced', '~> 1.6.0'
 gem 'acts-as-taggable-on', '~> 3.3.0'
 gem 'exception_notification', '~> 4.0.1'
+gem 'nokogiri', '~> 1.6.3.1'
 
