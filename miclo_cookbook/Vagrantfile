@@ -108,6 +108,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.add_recipe "miclo_cookbook::keys"
     chef.add_recipe "miclo_cookbook::nginx_setting"
     chef.add_recipe "miclo_cookbook::iptables"
+    chef.add_recipe "miclo_cookbook::mysql_setting"
     chef.add_recipe "miclo_cookbook::database"
 
     chef.json = {

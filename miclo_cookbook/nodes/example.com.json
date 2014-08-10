@@ -18,6 +18,7 @@
     "recipe[miclo_cookbook::keys]",
     "recipe[miclo_cookbook::nginx_setting]",
     "recipe[miclo_cookbook::iptables]",
+    "recipe[miclo_cookbook::mysql_setting]",
     "recipe[miclo_cookbook::database]"
   ],
   "automatic": {

@@ -9,5 +9,6 @@ mysql_connection_info = {
 mysql_database node.miclo_cookbook.db_name do
   connection mysql_connection_info
   action :create
+  encoding 'utf8mb4'
 end
 
