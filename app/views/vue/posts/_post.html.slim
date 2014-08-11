@@ -11,7 +11,10 @@ script#vue-post-template type="text/x-template"
             | &middot; {{{ timeAgo }}}
         div v-html="post.content_html"
         ul.list-inline.list-hover
-          li= link_to fa_icon('pencil fw'), '#', 'v-on' => "click: editPost", title: t('shared.edit_post')
-          li= bindable_link_to fa_icon('trash-o fw'), post_path('{{ post.id }}'),
+          li v-show="canManage()"
+            = link_to fa_icon('pencil fw'), '#', 'v-on' => "click: editPost", title: t('shared.edit_post')
+          li v-show="canManage()"
+            = bindable_link_to fa_icon('trash-o fw'), post_path('{{ post.id }}'),
             method: :delete, remote: true, data: { disable_with: spinner, confirm: t('shared.are_you_sure') }
-          li= bindable_link_to fa_icon('link fw'), u_t_p_path('{{ topic.user.username }}', '{{ topic.sequential_id }}', '{{ post.sequential_id }}')
+          li
+            = bindable_link_to fa_icon('link fw'), u_t_p_path('{{ topic.user.username }}', '{{ topic.sequential_id }}', '{{ post.sequential_id }}')

@@ -21,6 +21,8 @@ Vue.component 'post',
         @post = data
       )
       @modal.show()
+    canManage: ->
+      @post.user.id == Miclo.currentUser.id
 
 $ ->
   if $('#vue-post').length

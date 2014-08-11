@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:create, :failure]
+  skip_before_action :verify_authenticity_token, if: -> { Rails.env.development? }
 
   def create
     @identity = Identity.find_or_create_with_auth_hash(auth_hash)

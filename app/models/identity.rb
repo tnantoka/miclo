@@ -5,7 +5,7 @@ class Identity < ActiveRecord::Base
 
   serialize :raw
 
-  scope :github, -> { find_by(provider: 'github') }
+  scope :github, -> { where(provider: 'github') }
 
   class << self
     def find_or_create_with_auth_hash(auth_hash)

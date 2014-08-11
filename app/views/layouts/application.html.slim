@@ -38,6 +38,9 @@ html lang="#{I18n.locale}"
       = render 'shared/keyboard_shortcuts'
 
     = javascript_include_tag 'application'
+    - if user_signed_in?
+      javascript:
+        Miclo.currentUser = #{current_user.to_json.html_safe};
     = content_for(:javascript)
     = render 'shared/embed'
 
