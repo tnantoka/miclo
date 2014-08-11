@@ -14,6 +14,7 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
+    authorize! :manage, @post.topic if @post.topic.present?
     if @post.save
       @messages = [t('flash.shared.created', target: t('activerecord.models.post'))]
     else

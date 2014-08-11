@@ -16,9 +16,10 @@ Vue.component 'topic',
         if status == 'nocontent'
           @$destroy()
     prependPost: (post) ->
-      topic = @topic
-      topic.posts.unshift(post)
-      @topic = topic
+      if @topic.id == post.topic.id
+        topic = @topic
+        topic.posts.unshift(post)
+        @topic = topic
     removePost: (post) ->
       topic = @topic
       topic.posts = _.without(topic.posts, post)

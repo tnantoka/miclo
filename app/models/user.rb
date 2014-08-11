@@ -21,7 +21,8 @@ class User < ActiveRecord::Base
   class << self
     def create_with_auth_hash(auth_hash)
       info = auth_hash[:info]
-      create(username: generate_unique_username(info[:nickname]), image: info[:image], locale: I18n.locale)
+      nickname = info[:nickname].presence || info[:name] # name for developer strategy
+      create(username: generate_unique_username(nickname), image: info[:image], locale: I18n.locale)
     end
 
     def generate_unique_username(nickname)
@@ -48,7 +49,8 @@ class User < ActiveRecord::Base
   end
 
   def nickname(provider)
-    identities.send(provider).raw[:info][:nickname]
+    identity = identities.send(provider).last
+    identity.raw[:info][:nickname] if identity.present?
   end
 
   private
