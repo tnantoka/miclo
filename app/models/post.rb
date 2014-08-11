@@ -23,40 +23,6 @@ class Post < ActiveRecord::Base
   class << self
     include Rails.application.routes.url_helpers
 
-    def render(content)
-      renderer = Redcarpet::Render::HTML.new(
-        filter_html: true,
-        no_images: false,
-        no_links: false,
-        no_styles: false,
-        escape_html: true,
-        safe_links_only: false,
-        with_toc_data: false,
-        hard_wrap: true,
-        xhtml: false,
-        prettify: true,
-        link_attributes: {
-          target: '_blank'
-        }
-      )
-      markdown = Redcarpet::Markdown.new(renderer,
-        no_intra_emphasis: true,
-        tables: true,
-        fenced_code_blocks: true,
-        autolink: true,
-        disable_indented_code_blocks: true,
-        strikethrough: true,
-        lax_spacing: true,
-        space_after_headers: true, # For hashtag
-        superscript: true,
-        underline: true,
-        highlight: true,
-        quote: true,
-        footnotes: true,
-      )
-      markdown.render(content.to_s)
-    end
-
     def replace_hashtags(content, user)
       parse_hashtags(content) do |node, prefix, hashtag|
         path = search_path(q: {
@@ -88,7 +54,7 @@ class Post < ActiveRecord::Base
   end
 
   def render
-    rendered = Post.render(content)
+    rendered = Markdown.render(content)
     Post.replace_hashtags(rendered, user)
   end
 
@@ -118,7 +84,7 @@ class Post < ActiveRecord::Base
     end
 
     def update_tag_list
-      rendered = Post.render(content)
+      rendered = Markdown.render(content)
       tags = Post.extract_hashtags(rendered)
       self.tag_list = tags
       user.tag(self, with: tags, on: :tags, skip_save: true) # Infinite loop without skip_save
