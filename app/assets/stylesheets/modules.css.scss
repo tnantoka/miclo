@@ -132,3 +132,7 @@ hr.space-only {
   border-color: transparent;
 }
 
+// textcomplete with modal
+body > .dropdown-menu {
+  z-index: 1051 !important;
+}
