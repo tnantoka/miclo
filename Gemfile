@@ -45,9 +45,10 @@ group :development do
   gem 'capistrano-bundler', '~> 1.1.2'
   gem 'capistrano3-unicorn', '~> 0.2.1'
   gem 'bullet', '~> 4.13.0'
-  gem 'rails_best_practices', '~> 1.15.4', require: false
-  gem 'rubycritic', '~> 1.1.1', require: false
-  gem 'powder', '~> 0.2.1'
+  #gem 'rails_best_practices', '~> 1.15.4', require: false
+  #gem 'rubycritic', '~> 1.1.1', require: false
+  #gem 'powder', '~> 0.2.1', require: false
+  #gem 'brakeman', '~> 2.6.1', require: false
 end
 
 group :development, :test do

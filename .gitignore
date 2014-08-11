@@ -37,4 +37,5 @@ miclo.org.json
 # Test
 /coverage
 rails_best_practices_output.html
+output.html
 
