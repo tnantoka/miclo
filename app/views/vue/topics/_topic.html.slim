@@ -5,6 +5,7 @@ script#vue-topic-template type="text/x-template"
         li= bindable_link_to fa_icon('trash-o fw'), topic_path('{{ topic.id }}'),
           method: :delete, remote: true, data: { disable_with: spinner, confirm: t('shared.are_you_sure') }
         li= bindable_link_to fa_icon('link fw'), u_t_path('{{ topic.user.username }}', '{{ topic.sequential_id }}')
+        li= bindable_link_to fa_icon('code fw'), u_t_path('{{ topic.user.username }}', '{{ topic.sequential_id }}', format: :md)
       h1
         a href="#{bindable_path(:u_t, '{{ topic.user.username }}', '{{ topic.sequential_id }}')}" v-html="duration"
     ul.list-group
