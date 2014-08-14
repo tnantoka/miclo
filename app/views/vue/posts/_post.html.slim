@@ -18,3 +18,5 @@ script#vue-post-template type="text/x-template"
             method: :delete, remote: true, data: { disable_with: spinner, confirm: t('shared.are_you_sure') }
           li
             = bindable_link_to fa_icon('link fw'), u_t_p_path('{{ topic.user.username }}', '{{ topic.sequential_id }}', '{{ post.sequential_id }}')
+          li
+            = bindable_link_to fa_icon('code fw'), u_t_p_path('{{ topic.user.username }}', '{{ topic.sequential_id }}', '{{ post.sequential_id }}', format: :md)
