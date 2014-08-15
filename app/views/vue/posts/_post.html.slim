@@ -9,7 +9,7 @@ script#vue-post-template type="text/x-template"
             => bindable_link_to u_path('{{ post.user.username }}') do
               | {{ post.user.username }}
             | &middot; {{{ timeAgo }}}
-        div v-html="post.content_html"
+        .post-content v-html="post.content_html"
         ul.list-inline.list-hover
           li v-show="canManage()"
             = link_to fa_icon('pencil fw'), '#', 'v-on' => "click: editPost", title: t('shared.edit_post')

@@ -136,3 +136,26 @@ hr.space-only {
 body > .dropdown-menu {
   z-index: 1051 !important;
 }
+
+.post-content {
+  table {
+    @extend .table;
+    @extend .table-bordered;
+  }
+  h1 {
+    font-size: 28px;
+  }
+  h2 {
+    font-size: 26px;
+  }
+  h1, h2, h3 {
+    margin-top: 10px;
+  }
+}
+
+.page-header {
+  h1 {
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+}
