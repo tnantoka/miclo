@@ -13,4 +13,6 @@ cookbook 'imagemagick'
 cookbook 'simple_iptables', git: 'git@github.com:rtkwlf/cookbook-simple-iptables.git'
 cookbook 'mysql'
 cookbook 'phantomjs'
+cookbook 'openssl'
+cookbook 'postgresql'
 

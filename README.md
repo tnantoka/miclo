@@ -23,7 +23,7 @@ $ git clone git@github.com:tnantoka/miclo.git
 ```
 $ cd miclo/
 
-$ bin/bundle
+$ bin/bundle —without production staging
 $ bin/rake db:setup
 
 # .powrc 

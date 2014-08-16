@@ -7,7 +7,9 @@ DEPENDENCIES
   mysql
   nginx
   nodejs
+  openssl
   phantomjs
+  postgresql
   rbenv
     git: git@github.com:fnichol/chef-rbenv.git
     revision: f2b53292e810dd2b43f6121f9958f5f29979dcb1
