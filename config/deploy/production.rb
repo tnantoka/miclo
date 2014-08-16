@@ -51,6 +51,8 @@ set :default_env, {
   rbenv_root: "/usr/local/rbenv",
   path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH",
 
+  database_encoding: 'utf8mb4',
+
   miclo_database_password: node['mysql']['server_root_password'],
   secret_key_base: node['miclo_cookbook']['secret_key_base'],
 
