@@ -14,7 +14,10 @@
     "GITHUB_API_SECRET": {
       "required": true
     },
-    "DATABASE_ENCODING": "unicode"
+    "DATABASE_ENCODING": {
+      "required": true,
+      "value": "unicode"
+    }
   }
 }
 
