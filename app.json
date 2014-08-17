@@ -8,9 +8,13 @@
   ],
   "addons": [],
   "env": {
-    "DATABASE_ENCODING": "unicode",
-    "GITHUB_API_KEY": "",
-    "GITHUB_API_SECRET": ""
+    "GITHUB_API_KEY": {
+      "required": true
+    },
+    "GITHUB_API_SECRET": {
+      "required": true
+    },
+    "DATABASE_ENCODING": "unicode"
   }
 }
 
