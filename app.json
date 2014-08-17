@@ -6,6 +6,11 @@
     "Vue.js",
     "Personal"
   ],
+  "website": "http://miclo.org/",
+  "repository": "https://github.com/tnantoka/miclo",
+  "scripts": {
+    "postdeploy": "bundle exec rake db:migrate"
+  },
   "addons": [],
   "env": {
     "GITHUB_API_KEY": {
