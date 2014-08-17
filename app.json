@@ -14,10 +14,12 @@
   "addons": [],
   "env": {
     "GITHUB_API_KEY": {
-      "required": true
+      "required": true,
+      "description": "Client ID"
     },
     "GITHUB_API_SECRET": {
-      "required": true
+      "required": true,
+      "description": "Client Secret"
     },
     "DATABASE_ENCODING": {
       "required": true,
