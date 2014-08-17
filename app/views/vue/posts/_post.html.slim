@@ -2,7 +2,7 @@ script#vue-post-template type="text/x-template"
   li.list-group-item
     .media
       = bindable_link_to u_path('{{ post.user.username }}'), class: 'pull-left' do
-        = image_tag '', class: 'media-object img-rounded', 'v-attr' => 'src: post.user.image'
+        = image_tag '', class: 'media-object img-rounded avatar-default', 'v-attr' => 'src: post.user.image'
       .media-body.media-body-secondary-only.list-hover-container
         h4.media-heading
           small

@@ -3,7 +3,7 @@
   .panel-body
     .media
       = link_to u_path(user), class: 'pull-left' do
-        = image_tag user.default_image, class: 'media-object img-rounded'
+        = image_tag user.default_image, class: 'media-object img-rounded avatar-default'
       .media-body
           h4.media-heading
             => link_to u_path(user), class: 'link-plain' do
