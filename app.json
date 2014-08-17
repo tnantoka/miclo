@@ -23,6 +23,7 @@
     },
     "DATABASE_ENCODING": {
       "required": true,
+      "description": "postgresql",
       "value": "unicode"
     }
   }
