@@ -51,6 +51,8 @@ set :default_env, {
   rbenv_root: "/usr/local/rbenv",
   path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH",
 
+  database_encoding: 'utf8mb4',
+
   miclo_database_password: JSON.parse(File.read('miclo_cookbook/nodes/vagrant.local.json'))['mysql']['server_root_password'],
   secret_key_base: 'b11acaa0b8b06ee0dda3cd1bac2ed3e0e44002bcf86721323b182369a90eb368222f559a37987267815083f6bd52998b0b74378a7e107abf7a2414c114c50222',
 

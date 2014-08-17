@@ -52,6 +52,7 @@ production:
   database: miclo_production
   #username: miclo
   password: <%= ENV['MICLO_DATABASE_PASSWORD'] %>
+  encoding: <%= ENV['DATABASE_ENCODING'] %>
 
 staging:
   <<: *default

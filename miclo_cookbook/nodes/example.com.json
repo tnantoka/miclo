@@ -13,6 +13,9 @@
     "recipe[mysql::server]",
     "recipe[mysql::client]",
     "recipe[phantomjs]",
+    "recipe[openssl]",
+    "recipe[postgresql::server]",
+    "recipe[postgresql::client]",
 
     "recipe[miclo_cookbook::ops_user]",
     "recipe[miclo_cookbook::keys]",

@@ -23,7 +23,7 @@ $ git clone git@github.com:tnantoka/miclo.git
 ```
 $ cd miclo/
 
-$ bin/bundle
+$ bin/bundle —without production staging
 $ bin/rake db:setup
 
 # .powrc 
@@ -72,6 +72,12 @@ $ cd ../
 $ bin/bundle exec cap production deploy
 $ open http://example.com/
 ```
+
+### Production (Heroku)
+
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+
+[Live demo](http://miclo.herokuapp.com/)
 
 ## Contributing
 

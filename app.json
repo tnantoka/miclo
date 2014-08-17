@@ -1,0 +1,31 @@
+{
+  "name": "Miclo",
+  "description": "Just another microblogging",
+  "keywords": [
+    "Rails 4.1",
+    "Vue.js",
+    "Personal"
+  ],
+  "website": "http://miclo.org/",
+  "repository": "https://github.com/tnantoka/miclo",
+  "scripts": {
+    "postdeploy": "bundle exec rake db:migrate"
+  },
+  "addons": [],
+  "env": {
+    "GITHUB_API_KEY": {
+      "required": true,
+      "description": "Client ID"
+    },
+    "GITHUB_API_SECRET": {
+      "required": true,
+      "description": "Client Secret"
+    },
+    "DATABASE_ENCODING": {
+      "required": true,
+      "description": "postgresql",
+      "value": "unicode"
+    }
+  }
+}
+
