@@ -73,6 +73,12 @@ $ bin/bundle exec cap production deploy
 $ open http://example.com/
 ```
 
+### Production (Heroku)
+
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+
+[Live demo](http://miclo.herokuapp.com/)
+
 ## Contributing
 
 Please see [CONTRIBUTING.md](https://github.com/tnantoka/miclo/blob/master/CONTRIBUTING.md).
