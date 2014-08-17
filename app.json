@@ -1,0 +1,16 @@
+{
+  "name": "Miclo",
+  "description": "Just another microblogging",
+  "keywords": [
+    "Rails 4.1",
+    "Vue.js",
+    "Personal"
+  ],
+  "addons": [],
+  "env": {
+    "DATABASE_ENCODING": "unicode",
+    "GITHUB_API_KEY": "",
+    "GITHUB_API_SECRET": ""
+  }
+}
+
