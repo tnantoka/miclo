@@ -26,6 +26,8 @@ Vue.component 'topic',
       @topic = topic
     formatDate: (time) ->
       moment(time).format('l')
+    canManage: ->
+      Miclo.currentUser && @topic.user.id == Miclo.currentUser.id
 
 $ ->
   if $('#vue-topic').length

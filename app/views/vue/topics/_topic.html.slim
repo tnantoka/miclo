@@ -2,7 +2,8 @@ script#vue-topic-template type="text/x-template"
   .panel.panel-default v-show="!!topic.posts.length"
     .panel-heading.list-hover-container
       ul.list-inline.pull-right.list-hover
-        li= bindable_link_to fa_icon('trash-o fw'), topic_path('{{ topic.id }}'),
+        li v-show="canManage()"
+          = bindable_link_to fa_icon('trash-o fw'), topic_path('{{ topic.id }}'),
           method: :delete, remote: true, data: { disable_with: spinner, confirm: t('shared.are_you_sure') }
         li= bindable_link_to fa_icon('link fw'), u_t_path('{{ topic.user.username }}', '{{ topic.sequential_id }}')
         li= bindable_link_to fa_icon('code fw'), u_t_path('{{ topic.user.username }}', '{{ topic.sequential_id }}', format: :md)

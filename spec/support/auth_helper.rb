@@ -4,7 +4,7 @@ module AuthHelper
       uid: 1,
       provider: :github,
       info: {
-        nickname: 'miclo',
+        nickname: 'nickname',
         image: 'image',
       }
     })
@@ -23,6 +23,7 @@ module AuthHelper
   end
 
   def sign_out
+    all('.navbar-fixed-top .dropdown-toggle').last.click
     click_on I18n.t('shared.sign_out')
   end
 

@@ -11,7 +11,8 @@ $ ->
       newPost: ->
         @modal = Miclo.newPostModal()
         @modal.show()
-      setUser: (userId, username) ->
+      setUser: (e, userId, username) ->
+        e.preventDefault()
         @userId = userId
         @username = username
 

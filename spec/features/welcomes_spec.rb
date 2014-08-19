@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature "Welcomes", type: :feature do
-  context 'signed out' do
+  context 'when user is signed out' do
     describe 'home' do
       before do
         visit home_path

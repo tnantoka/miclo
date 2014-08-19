@@ -18,15 +18,15 @@ nav#vue-navbar-top.navbar.navbar-default.navbar-fixed-top role="navigation" v-on
                 span.caret
               ul.dropdown-menu role="menu"
                 li
-                  a href="#" v-on="click: setUser('', '#{t('shared.all_users')}')"
+                  a href="#" v-on="click: setUser($event, '', '#{t('shared.all_users')}')"
                     = t('shared.all_users')
                 - if user.present?
                   li
-                    a href="#" v-on="click: setUser(#{user.id}, '#{user.username}')"
+                    a href="#" v-on="click: setUser($event, #{user.id}, '#{user.username}')"
                       = user.username
                 - if user_signed_in? && current_user != user
                   li
-                    a href="#" v-on="click: setUser(#{current_user.id}, '#{current_user.username}')"
+                    a href="#" v-on="click: setUser($event, #{current_user.id}, '#{current_user.username}')"
                       = current_user.username
             = f.text_field :posts_content_cont, value: params[:q].try(:[], :posts_content_cont), class: 'form-control', placeholder: t('shared.search')
             span.input-group-btn
@@ -34,7 +34,7 @@ nav#vue-navbar-top.navbar.navbar-default.navbar-fixed-top role="navigation" v-on
           = f.hidden_field :user_id_eq, value: '{{ userId }}'
       - if user_signed_in?
         form.navbar-form.navbar-right
-          btn.btn.btn-default type="button" v-on="click: newPost" title="#{t('shared.new_post')}"
+          button.btn.btn-default type="button" v-on="click: newPost" title="#{t('shared.new_post')}"
             = fa_icon 'pencil'
       ul.nav.navbar-nav.navbar-right
         - if user_signed_in?

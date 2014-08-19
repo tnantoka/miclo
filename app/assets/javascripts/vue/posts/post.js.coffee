@@ -16,13 +16,14 @@ Vue.component 'post',
           e.stopPropagation()
           @$parent.removePost(@post)
           @$destroy()
-    editPost: ->
+    editPost: (e) ->
+      e.preventDefault()
       @modal = Miclo.editPostModal(@post, (data) ->
         @post = data
       )
       @modal.show()
     canManage: ->
-      @post.user.id == Miclo.currentUser.id
+      Miclo.currentUser && @post.user.id == Miclo.currentUser.id
 
 $ ->
   if $('#vue-post').length

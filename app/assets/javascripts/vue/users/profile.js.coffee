@@ -16,9 +16,9 @@ $ ->
             @hashtags = data.slice(0, 5)
             @allHashtags = data.slice(5) if data.length > 5
         showMore: (e) ->
+          e.preventDefault()
           @hashtags = @hashtags.concat(@allHashtags)
           @allHashtags = []
-          e.preventDefault()
 
 $ ->
   if $('#vue-queries').length
@@ -35,7 +35,7 @@ $ ->
             @queries = data.slice(0, 5)
             @allQueries = data.slice(5) if data.length > 5
         showMore: (e) ->
+          e.preventDefault()
           @queries = @queries.concat(@allQueries)
           @allQueries = []
-          e.preventDefault()
 
