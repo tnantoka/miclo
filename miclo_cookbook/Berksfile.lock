@@ -9,6 +9,7 @@ DEPENDENCIES
   nodejs
   openssl
   phantomjs
+  postfix
   postgresql
   rbenv
     git: git@github.com:fnichol/chef-rbenv.git
@@ -78,6 +79,7 @@ GRAPH
   phantomjs (1.0.3)
     build-essential (>= 0.0.0)
     chocolatey (>= 0.0.0)
+  postfix (3.4.0)
   postgresql (3.4.1)
     apt (>= 1.9.0)
     build-essential (>= 0.0.0)

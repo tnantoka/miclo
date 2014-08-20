@@ -16,6 +16,7 @@
     "recipe[openssl]",
     "recipe[postgresql::server]",
     "recipe[postgresql::client]",
+    "recipe[postfix]",
 
     "recipe[miclo_cookbook::ops_user]",
     "recipe[miclo_cookbook::keys]",
@@ -29,6 +30,12 @@
   },
   "mysql": {
     "server_root_password": "ilikerandompasswords"
+  },
+  "postfix": {
+    "main": {
+      "myhostname": "miclo.org",
+      "mydomain": "miclo.org"
+    }
   },
   "miclo_cookbook": {
     "server_name": "example.com",

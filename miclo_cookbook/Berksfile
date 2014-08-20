@@ -15,4 +15,5 @@ cookbook 'mysql'
 cookbook 'phantomjs'
 cookbook 'openssl'
 cookbook 'postgresql'
+cookbook 'postfix'
 
