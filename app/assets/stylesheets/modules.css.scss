@@ -2,6 +2,11 @@
   h1 {
     font-size: 36px;
   }
+  @media (max-width: $screen-xs-max) {
+    .btn-lg {
+      font-size: 15px;
+    }
+  }
 }
 
 .navbar {
