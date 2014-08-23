@@ -17,6 +17,7 @@ class TopicsController < ApplicationController
   end
 
   private
+
     def set_user
       @user = User.find_by!(username: params[:u_id]) if params[:u_id].present?
     end

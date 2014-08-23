@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "Queries", type: :feature do
+feature 'Queries', type: :feature do
   let(:user) { User.first }
   let(:content_1) { "content_1 #{query_1}" }
   let(:query_1) { 'query_1' }

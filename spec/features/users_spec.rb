@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "Users", type: :feature do
+feature 'Users', type: :feature do
   before do
     sign_in
   end
@@ -14,7 +14,7 @@ feature "Users", type: :feature do
       expect(page).to have_content user.username
     end
   end
- 
+
   describe 'update' do
     let(:locale) { 'ja' }
     before do

@@ -14,7 +14,8 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
-    authorize! :manage, @post.topic if @post.topic.present?
+    topic = @post.topic
+    authorize! :manage, topic if topic.present?
     if @post.save
       @messages = [t('flash.shared.created', target: t('activerecord.models.post'))]
     else
@@ -43,6 +44,7 @@ class PostsController < ApplicationController
   end
 
   private
+
     def set_user
       @user = User.find_by!(username: params[:u_id]) if params[:u_id].present?
     end

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "Posts", type: :feature do
+feature 'Posts', type: :feature do
   let(:user) { User.first }
 
   before do
@@ -9,7 +9,7 @@ feature "Posts", type: :feature do
 
   context 'with js', js: true do
     let(:post) { user.posts.create(content: content) }
-    
+
     context 'when user is signed in' do
       describe 'show' do
         let(:content) { '# content' }
@@ -95,7 +95,7 @@ feature "Posts", type: :feature do
       describe 'destroy' do
         let(:content) { 'content' }
         before do
-          post 
+          post
           visit home_path
           find("a[href='#{post_path(post.id)}'][data-method='delete']").click
         end

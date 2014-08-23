@@ -1,5 +1,5 @@
 class Hashtag
-  HashtagPattern = /(^|\p{blank})(#[^\p{blank}]+)/
+  PATTERN = /(^|\p{blank})(#[^\p{blank}]+)/
 
   class << self
     include Rails.application.routes.url_helpers
@@ -25,7 +25,7 @@ class Hashtag
     def parse(content)
       doc = Nokogiri::HTML.fragment(content)
       doc.xpath('*[not(self::a)]/text()').each do |node|
-        replaced = node.content.gsub(HashtagPattern) do |match|
+        replaced = node.content.gsub(PATTERN) do |match|
           yield node, $1, $2
         end
         node.replace(replaced)

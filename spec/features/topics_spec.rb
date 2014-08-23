@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "Topics", type: :feature do
+feature 'Topics', type: :feature do
   let(:user) { User.first }
 
   before do

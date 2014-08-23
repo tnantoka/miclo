@@ -1,17 +1,17 @@
 module AuthHelper
   def mock_auth_hash
-    OmniAuth::AuthHash.new({
+    OmniAuth::AuthHash.new(
       uid: 1,
       provider: :github,
       info: {
         nickname: 'nickname',
         image: 'image',
       }
-    })
+    )
   end
 
   def sign_in(auth_hash = mock_auth_hash)
-    page.driver.headers = { 'Accept-Language' => 'en' }  if page.driver.respond_to?(:headers=)
+    page.driver.headers = { 'Accept-Language' => 'en' } if page.driver.respond_to?(:headers=)
 
     provider = mock_auth_hash[:provider]
 

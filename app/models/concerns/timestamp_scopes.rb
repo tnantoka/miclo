@@ -4,4 +4,3 @@ module TimestampScopes
     scope :active, -> { order(updated_at: :desc) }
   end
 end
-

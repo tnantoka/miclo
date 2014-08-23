@@ -18,7 +18,6 @@ class Post < ActiveRecord::Base
   scope :with_user, -> { includes(:user) }
   scope :sequential, -> { order(sequential_id: :desc) }
 
-
   def render
     rendered = Markdown.render(content)
     Hashtag.replace(rendered, user)
@@ -37,6 +36,7 @@ class Post < ActiveRecord::Base
   end
 
   private
+
     def create_topic
       self.topic = user.topics.create
     end

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "Hashtags", type: :feature do
+feature 'Hashtags', type: :feature do
   let(:user) { User.first }
   let(:content) { "#{tag_1} #{tag_2}" }
   let(:tag_1) { '#tag_1' }

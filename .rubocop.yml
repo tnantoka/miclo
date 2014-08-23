@@ -1,0 +1,37 @@
+Style/LeadingCommentSpace:
+  Enabled: false
+Style/LineLength:
+  Enabled: false
+Style/Blocks:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+Style/AlignParameters: 
+  Enabled: false
+Style/TrailingComma:
+  Enabled: false
+Style/IndentationConsistency:
+  Enabled: false
+Style/IndentHash:
+  Enabled: false
+Style/PerlBackrefs:
+  Enabled: false
+Style/WhileUntilDo:
+  Enabled: false
+Style/BlockComments:
+  Enabled: false
+Style/DoubleNegation:
+  Enabled: false
+Style/IndentationWidth:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Lint/UnusedBlockArgument:
+  Enabled: false
+Lint/UnusedMethodArgument:
+  Enabled: false
+Lint/EndAlignment:
+  Enabled: false
+

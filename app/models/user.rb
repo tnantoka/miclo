@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   acts_as_tagger
 
   module ImageSize
-    Default = 48
+    DEFAULT = 48
   end
 
   validates :username,
@@ -41,7 +41,7 @@ class User < ActiveRecord::Base
   end
 
   def default_image
-    resized_image(ImageSize::Default)
+    resized_image(ImageSize::DEFAULT)
   end
 
   def to_param
@@ -54,6 +54,7 @@ class User < ActiveRecord::Base
   end
 
   private
+
     def resized_image(size)
       "#{image}&s=#{size}"
     end

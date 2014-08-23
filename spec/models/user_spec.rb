@@ -20,7 +20,7 @@ RSpec.describe User, type: :model do
   describe '#default_image' do
     let(:image) { user.image }
     subject { user.default_image }
-    it { should eq "#{image}&s=#{User::ImageSize::Default}" }
+    it { should eq "#{image}&s=#{User::ImageSize::DEFAULT}" }
   end
 
   describe '.create_with_auth_hash' do
@@ -46,4 +46,3 @@ RSpec.describe User, type: :model do
     it { should eq "#{mock_auth_hash[:info][:nickname]}_2" }
   end
 end
-

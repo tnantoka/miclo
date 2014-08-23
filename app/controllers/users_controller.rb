@@ -26,6 +26,7 @@ class UsersController < ApplicationController
   end
 
   private
+
     def set_user
       # Don't use current_user to avoid showing invalid content on navbar etc.
       @user = if action_name == 'show'

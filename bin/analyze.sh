@@ -7,3 +7,5 @@ open tmp/rubycritic/overview.html
 brakeman -o output.html 
 open output.html
 
+rubocop -R app spec
+

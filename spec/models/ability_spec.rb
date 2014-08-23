@@ -14,16 +14,15 @@ RSpec.describe Ability, type: :model do
   let(:content) { 'content' }
 
   subject(:ability) { Ability.new(user_1) }
-  it{ should be_able_to(:manage, user_1) }
-  it{ should_not be_able_to(:manage, user_2) }
+  it { should be_able_to(:manage, user_1) }
+  it { should_not be_able_to(:manage, user_2) }
 
-  it{ should be_able_to(:manage, post_1) }
-  it{ should_not be_able_to(:manage, post_2) }
+  it { should be_able_to(:manage, post_1) }
+  it { should_not be_able_to(:manage, post_2) }
 
-  it{ should be_able_to(:manage, topic_1) }
-  it{ should_not be_able_to(:manage, topic_2) }
+  it { should be_able_to(:manage, topic_1) }
+  it { should_not be_able_to(:manage, topic_2) }
 
-  it{ should be_able_to(:create, user_1.posts.new(content: content, topic: topic_1)) }
-  it{ should_not be_able_to(:create, user_1.posts.new(content: content, topic: topic_2)) }
+  it { should be_able_to(:create, user_1.posts.new(content: content, topic: topic_1)) }
+  it { should_not be_able_to(:create, user_1.posts.new(content: content, topic: topic_2)) }
 end
-

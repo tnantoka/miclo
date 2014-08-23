@@ -51,6 +51,7 @@ group :development do
   #gem 'rubycritic', '~> 1.1.1', require: false
   #gem 'powder', '~> 0.2.1', require: false
   #gem 'brakeman', '~> 2.6.1', require: false
+  #gem 'rubocop', '~> 0.25.0', require: false
 end
 
 group :development, :test do
@@ -70,7 +71,7 @@ end
 group :production, :staging do
   gem 'unicorn', '~> 4.8.3'
   gem 'rails_12factor', '~> 0.0.2'
-  gem 'pg', '~> 0.17.1'  
+  gem 'pg', '~> 0.17.1'
 end
 
 # Rails

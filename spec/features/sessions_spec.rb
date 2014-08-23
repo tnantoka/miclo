@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "Sessions", type: :feature do
+feature 'Sessions', type: :feature do
   describe 'sign up' do
     before do
       sign_in

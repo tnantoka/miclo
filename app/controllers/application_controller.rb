@@ -23,6 +23,7 @@ class ApplicationController < ActionController::Base
   end
 
   protected
+
     def current_user
       @current_user ||= User.find_by(id: session[:user_id])
     end
@@ -39,9 +40,9 @@ class ApplicationController < ActionController::Base
     end
 
     def authenticate_user!
-      unless user_signed_in?
-        redirect_to :root, alert: t('flash.shared.unauthenticated')
-      end
+      return if user_signed_in?
+
+      redirect_to :root, alert: t('flash.shared.unauthenticated')
     end
 
     def reload_current_user
@@ -50,6 +51,7 @@ class ApplicationController < ActionController::Base
     end
 
   private
+
     def extract_locale_from_accept_language_header
       available_locale(request.env['HTTP_ACCEPT_LANGUAGE'].to_s.scan(/^[a-z]{2}/).first)
     end

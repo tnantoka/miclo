@@ -24,7 +24,7 @@ RSpec.describe Post, type: :model do
   describe '#destroy_topic' do
     let(:content) { 'content' }
     let(:topic_id) { post.topic.id }
-    subject { 
+    subject {
       post.destroy
       Topic.exists?(topic_id)
     }
@@ -60,9 +60,9 @@ RSpec.describe Post, type: :model do
         http://example.com/#acnhor
         [Example](http://example.com/#acnhor)
       EOD
-     }
+    }
     let(:content_html) {
-      hashtag = %|<a href="/search?q%5Bposts_content_cont%5D=%23hashtag&amp;q%5Buser_id_eq%5D=#{user.id}">#hashtag</a>|
+      hashtag = %(<a href="/search?q%5Bposts_content_cont%5D=%23hashtag&amp;q%5Buser_id_eq%5D=#{user.id}">#hashtag</a>)
       <<-EOD.strip_heredoc
         <p>content</p>
 
