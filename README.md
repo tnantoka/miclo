@@ -12,15 +12,10 @@
 
 ## Installation
 
-### Checkout
-
-```
-$ git clone git@github.com:tnantoka/miclo.git
-```
-
 ### Development (Mac)
 
 ```
+$ git clone git@github.com:tnantoka/miclo.git
 $ cd miclo/
 
 $ bin/bundle —without production staging
@@ -38,6 +33,7 @@ $ open http://miclo.dev/
 ### Staging (Vagrant)
 
 ```
+$ git clone git@github.com:tnantoka/miclo.git
 $ cd miclo/miclo_cookbook
 
 $ bundle exec berks vendor
@@ -64,6 +60,7 @@ $ open http://localhost:8080/
 ### Production (exmaple.com)
 
 ```
+$ git clone git@github.com:tnantoka/miclo.git
 $ cd miclo/miclo_cookbook
 $ bundle exec knife solo bootstrap user@example.com
 $ bundle exec knife solo cook user@example.com
