@@ -2,7 +2,7 @@ class WelcomeController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
 
   def index
-    redirect_to :home if user_signed_in?
+    redirect_to :home, notice: flash[:notice], alert: flash[:alert] if user_signed_in?
   end
 
   def home
