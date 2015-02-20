@@ -74,6 +74,10 @@ group :production, :staging do
   gem 'pg', '~> 0.17.1'
 end
 
+group :production do
+  gem 'newrelic_rpm'
+end
+
 # Rails
 gem 'slim-rails', '~> 2.1.5'
 gem 'rails-i18n', '~> 4.0.2'
