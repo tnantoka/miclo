@@ -74,10 +74,6 @@ group :production, :staging do
   gem 'pg', '~> 0.17.1'
 end
 
-group :production do
-  gem 'newrelic_rpm'
-end
-
 # Rails
 gem 'slim-rails', '~> 2.1.5'
 gem 'rails-i18n', '~> 4.0.2'
@@ -107,4 +103,4 @@ gem 'sequenced', '~> 1.6.0'
 gem 'acts-as-taggable-on', '~> 3.3.0'
 gem 'exception_notification', '~> 4.0.1'
 gem 'nokogiri', '~> 1.6.3.1'
-
+gem 'newrelic_rpm'
