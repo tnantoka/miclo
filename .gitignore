@@ -39,3 +39,5 @@ miclo.org.json
 rails_best_practices_output.html
 output.html
 
+# New Relic
+config/newrelic.yml
