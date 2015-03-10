@@ -34,7 +34,9 @@
   "postfix": {
     "main": {
       "myhostname": "miclo.org",
-      "mydomain": "miclo.org"
+      "mydomain": "miclo.org",
+      "smtpd_use_tls": false,
+      "smtp_use_tls": false
     }
   },
   "miclo_cookbook": {
