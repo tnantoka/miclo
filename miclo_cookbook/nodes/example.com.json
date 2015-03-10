@@ -35,8 +35,11 @@
     "main": {
       "myhostname": "miclo.org",
       "mydomain": "miclo.org",
-      "smtpd_use_tls": false,
-      "smtp_use_tls": false
+      "smtpd_use_tls": "no",
+      "smtp_use_tls": "no"
+    },
+    "master": {
+      "submission": true
     }
   },
   "miclo_cookbook": {
