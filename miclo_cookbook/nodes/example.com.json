@@ -37,9 +37,6 @@
       "mydomain": "miclo.org",
       "smtpd_use_tls": "no",
       "smtp_use_tls": "no"
-    },
-    "master": {
-      "submission": true
     }
   },
   "miclo_cookbook": {
@@ -47,7 +44,9 @@
     "db_name": "miclo_production",
     "secret_key_base": "",
     "github_api_key": "",
-    "github_api_secret": ""
+    "github_api_secret": "",
+    "sendgrid_username": "",
+    "sendgrid_password": ""
   },
   "rbenv": {
     "global": "2.1.2",

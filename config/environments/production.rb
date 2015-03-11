@@ -86,4 +86,13 @@ Rails.application.configure do
       sender_address: %{'Miclo' <notifier@miclo.org>},
       exception_recipients: %w{tnantoka@bornneet.com}
     }
+
+  config.action_mailer.smtp_settings = {
+    user_name: ENV['sendgrid_username'],
+    password: ENV['sendgrid_password'],
+    address: 'smtp.sendgrid.net',
+    port: 587,
+    authentication: :plain,
+    enable_starttls_auto: true
+  }
 end
