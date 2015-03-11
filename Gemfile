@@ -42,10 +42,10 @@ group :development do
   gem 'chef', '~> 11.12.8'
   gem 'berkshelf', '~> 3.1.4'
   gem 'knife-solo', '~> 0.4.2'
-  gem 'capistrano', '~> 3.2.1'
-  gem 'capistrano-rails', '~> 1.1.1'
-  gem 'capistrano-bundler', '~> 1.1.2'
-  gem 'capistrano3-unicorn', '~> 0.2.1'
+  gem 'capistrano'
+  gem 'capistrano-rails'
+  gem 'capistrano-bundler'
+  gem 'capistrano3-unicorn'
   gem 'bullet', '~> 4.13.0'
   #gem 'rails_best_practices', '~> 1.15.4', require: false
   #gem 'rubycritic', '~> 1.1.1', require: false
