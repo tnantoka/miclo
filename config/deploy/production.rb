@@ -59,6 +59,6 @@ set :default_env, {
   github_api_key: node['miclo_cookbook']['github_api_key'],
   github_api_secret: node['miclo_cookbook']['github_api_secret'],
 
-  sendgrid_password: node['miclo_cookbook']['sendgrid_username'],
+  sendgrid_username: node['miclo_cookbook']['sendgrid_username'],
   sendgrid_password: node['miclo_cookbook']['sendgrid_password'],
 }
