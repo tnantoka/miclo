@@ -36,7 +36,7 @@ feature 'Topics', type: :feature do
       describe 'index' do
         let(:content) { 'content' }
         before do
-          visit u_t_index_path(user, topic)
+          visit u_t_index_path(user, topic, format: :json)
         end
         it 'shows topics' do
           expect(page).to have_content(content)
@@ -76,7 +76,7 @@ feature 'Topics', type: :feature do
       describe 'index' do
         let(:content) { 'content' }
         before do
-          visit u_t_index_path(user, topic)
+          visit u_t_index_path(user, topic, format: :json)
         end
         it 'shows topics' do
           expect(page).to have_content(content)

@@ -5,7 +5,10 @@ class TopicsController < ApplicationController
   authorize_resource
 
   def index
-    @topics = @user.topics.active.page(params[:page])
+    respond_to do |format|
+      format.json { @topics = @user.topics.active.page(params[:page]) }
+      format.any { raise ActiveRecord::RecordNotFound }
+    end
   end
 
   def show
