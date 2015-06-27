@@ -1,6 +1,6 @@
 # Miclo [![Build Status](https://travis-ci.org/tnantoka/miclo.svg?branch=master)](https://travis-ci.org/tnantoka/miclo) [![Coverage Status](https://coveralls.io/repos/tnantoka/miclo/badge.png?branch=master)](https://coveralls.io/r/tnantoka/miclo?branch=master) [![Code Climate](https://codeclimate.com/github/tnantoka/miclo/badges/gpa.svg)](https://codeclimate.com/github/tnantoka/miclo)
 
-[Miclo.org](http://miclo.org/) is a personal microblogging platform.
+[Miclo](http://miclo.bornneet.com/) is a personal microblogging platform.
 
 ![](home.png)
 

@@ -39,3 +39,16 @@ server {
   return 301 http://<%= node.miclo_cookbook.server_name %>$request_uri;
 }
 
+server {
+  listen 80;
+  server_name <%= node.miclo_cookbook.old_server_name %>;
+  return 301 http://<%= node.miclo_cookbook.server_name %>$request_uri;
+}
+
+server {
+  listen 80;
+  server_name www.<%= node.miclo_cookbook.old_server_name %>;
+  return 301 http://<%= node.miclo_cookbook.server_name %>$request_uri;
+}
+
+

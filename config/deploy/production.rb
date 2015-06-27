@@ -6,9 +6,9 @@ require 'json'
 # is considered to be the first unless any hosts have the primary
 # property set.  Don't declare `role :all`, it's a meta role.
 
-role :app, %w{ops@miclo.org}
-role :web, %w{ops@miclo.org}
-role :db,  %w{ops@miclo.org}
+role :app, %w{ops@miclo.bornneet.com}
+role :web, %w{ops@miclo.bornneet.com}
+role :db,  %w{ops@miclo.bornneet.com}
 
 
 # Extended Server Syntax

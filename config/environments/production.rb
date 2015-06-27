@@ -83,14 +83,14 @@ Rails.application.configure do
   config.middleware.use ExceptionNotification::Rack,
     email: {
       email_prefix: '[Miclo] ',
-      sender_address: %{'Miclo' <notifier@miclo.org>},
+      sender_address: %{'Miclo' <notifier@miclo.bornneet.com>},
       exception_recipients: %w{tnantoka@bornneet.com}
     }
 
   config.action_mailer.smtp_settings = {
     user_name: ENV['SENDGRID_USERNAME'],
     password: ENV['SENDGRID_PASSWORD'],
-    domain: 'miclo.org',
+    domain: 'miclo.bornneet.com',
     address: 'smtp.sendgrid.net',
     port: 587,
     authentication: :plain,

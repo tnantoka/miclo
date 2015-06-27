@@ -33,14 +33,15 @@
   },
   "postfix": {
     "main": {
-      "myhostname": "miclo.org",
-      "mydomain": "miclo.org",
+      "myhostname": "miclo.bornneet.com",
+      "mydomain": "miclo.bornneet.com",
       "smtpd_use_tls": "no",
       "smtp_use_tls": "no"
     }
   },
   "miclo_cookbook": {
     "server_name": "example.com",
+    "old_server_name": "old.example.com",
     "db_name": "miclo_production",
     "secret_key_base": "",
     "github_api_key": "",
