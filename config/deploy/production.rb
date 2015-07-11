@@ -46,7 +46,7 @@ role :db,  %w{ops@miclo.bornneet.com}
 #     # password: 'please use keys'
 #   }
 
-node = JSON.parse(File.read('miclo_cookbook/nodes/miclo.org.json'))
+node = JSON.parse(File.read('miclo_cookbook/nodes/miclo.bornneet.com.json'))
 set :default_env, {
   rbenv_root: "/usr/local/rbenv",
   path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH",
